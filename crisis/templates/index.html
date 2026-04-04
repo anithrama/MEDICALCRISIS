@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Medical Crisis - Official</title>
+
+  <!-- css -->
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/cubeportfolio/css/cubeportfolio.min.css' %}">
+  <link href="{% static 'assets/css/nivo-lightbox.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'assets/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- boxed bg -->
+  <link id="bodybg" href="{% static 'assets/bodybg/bg1.css' %}" rel="stylesheet" type="text/css" />
+  <!-- template skin -->
+  <link id="t-colors" href="{% static 'assets/color/default.css' %}" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar-custom {
+      transition: background 0.4s;
+    }
+
+    .navbar-custom.scrolled {
+      background-color: #004080 !important;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #002b5c;
+      color: #fff;
+      padding: 60px 0 30px;
+      margin-top: 50px;
+    }
+
+    footer h5 {
+      color: #ffcc00;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ffcc00;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #004b8d;
+      margin-top: 30px;
+      padding-top: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .social-icons a {
+      color: #ffcc00;
+      font-size: 20px;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" data-offset="70">
+
+  {% if msg != "" %}
+  <script>alert("{{msg}}")</script>
+  {% endif %}
+
+  <div id="wrapper">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container navigation">
+
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="#page-top">
+            <h2 style="font-weight: 600;">Medical Crisis</h2>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#intro">Home</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="{% url 'userRegister' %}">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+                <h2 class="h-ultra">Medical Crisis group</h2>
+              </div>
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
+                <h4 class="h-light">Provide <span class="color">Medical crisis management</span> for you</h4>
+              </div>
+            </div>
+
+            {% block content %}
+            <div class="col-lg-6">
+              <div class="form-wrapper">
+                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
+                  <div class="panel panel-skin">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">SIGN IN</h3>
+                    </div>
+                    <div class="panel-body">
+                      <form action="{% url 'login' %}" method="post" role="form" class="lead">
+                        {% csrf_token %}
+                        <div class="row">
+                          <div class="col-xs-6">
+                            <div class="form-group">
+                              <label>Username</label>
+                              <input type="text" name="username" class="form-control input-md">
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <div class="form-group">
+                              <label>Password</label>
+                              <input type="password" name="password" class="form-control input-md">
+                            </div>
+                          </div>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-skin btn-block btn-lg">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Section -->
+    <section id="service" class="home-section bg-gray paddingbot-60">
+      <div class="container marginbot-50">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold">Our Services</h2>
+                <p>We provide complete medical crisis support and healthcare management.</p>
+              </div>
+            </div>
+            <div class="divider-short"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <span class="fa fa-ambulance fa-3x"></span>
+              </div>
+              <h5 class="h-light">Emergency Assistance</h5>
+              <p>24/7 rapid response and ambulance coordination.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <span class="fa fa-stethoscope fa-3x"></span>
+              </div>
+              <h5 class="h-light">Doctor Consultation</h5>
+              <p>Access top doctors and specialists anytime.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <span class="fa fa-medkit fa-3x"></span>
+              </div>
+              <h5 class="h-light">Medical Support</h5>
+              <p>Comprehensive patient care and diagnostics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-4">
+            <h5>About Medical Crisis</h5>
+            <p>
+              Medical Crisis provides emergency healthcare assistance and connects patients to the best doctors instantly.
+            </p>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#intro">Home</a></li>
+              <li><a href="#service">Services</a></li>
+              <li><a href="{% url 'userRegister' %}">Sign Up</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5>Contact Info</h5>
+            <p><i class="fa fa-map-marker"></i> Medical Crisis Center, City Hospital, India</p>
+            <p><i class="fa fa-envelope"></i> info@medicalcrisis.org</p>
+            <p><i class="fa fa-phone"></i> +91 98765 43210</p>
+
+            <div class="social-icons mt-2">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom mt-4">
+          <p>© 2025 Medical Crisis | All Rights Reserved | Designed by Macfesta College</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/js/wow.min.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+    // Navbar background change on scroll
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 50) {
+        $('.navbar-custom').addClass('scrolled');
+      } else {
+        $('.navbar-custom').removeClass('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
