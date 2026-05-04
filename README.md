@@ -128,7 +128,10 @@ Open in browser:
 `http://127.0.0.1:8000/`
 
 ## Default Access (If Using Provided SQL Dump)
-- Admin username: `admin`
+
+https://github.com/user-attachments/assets/ef57bab0-053e-47a5-8c77-d0090cdd2710
+
+
 - Admin password: `admin`
 
 If credentials were changed in your DB, use the updated values.
@@ -146,10 +149,7 @@ Confirm user exists in `login` table and has role `admin` or `user`.
 3. Styles not loading  
 Ensure static paths are correct and keep `DEBUG = True` during local development.
 
-## Project Video
-Add your demo video link here:
 
-`<paste-your-video-link>`
 
 ## License
 This project is currently for academic/project use. Add a formal license if you plan public distribution.
